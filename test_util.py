@@ -6,10 +6,8 @@ load_dotenv()
 api_key = os.getenv("DISCORD_API_KEY")
 LM_STUDIO_URL = "http://127.0.0.1:1234/v1/chat/completions"
 
-# URL API Discord (например, отправка сообщения)
 url = os.getenv("CHAT_URL")
 
-# Заголовки для запросов к Discord API
 headers = {
     "Authorization": api_key,  # Токен пользователя или бота
     "Content-Type": "application/json",
@@ -23,7 +21,6 @@ headers = {
     "X-Discord-Timezone": "Europe/Volgograd",
 }
 
-# Примеры сообщений о блокчейне
 blockchain_messages = [
     "Привет! Кто-нибудь может объяснить, что такое блокчейн?",
     "Блокчейн — это цепочка блоков, в которых хранятся данные. Каждый блок содержит информацию о предыдущем блоке.",
@@ -37,7 +34,6 @@ blockchain_messages = [
     "Рекомендую начать с книги «Mastering Bitcoin» Андреаса Антонопулоса. Также полезно изучить документацию Ethereum.",
 ]
 
-# Функция для отправки сообщений
 def send_message(url, headers, message):
     data = {
         "content": message,

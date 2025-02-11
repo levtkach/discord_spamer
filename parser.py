@@ -28,11 +28,3 @@ def get_last_messages(chat_url, api_key, message_count):
     except Exception as e:
         print(f"Произошла ошибка при запросе: {e}")
         return None
-
-
-# print(
-#     get_last_10_messages(
-#         "1338809052389441586",
-#         "MTMzODg0MDAwMTgwNjYwMjI4NA.GsM9-w.eaepfU-b3_A9GQL6aWihU-NpDHm6kcugt8Jnag",
-#     )
-# )

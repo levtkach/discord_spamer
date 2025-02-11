@@ -4,8 +4,6 @@ import os
 
 load_dotenv()
 api_key = os.getenv("DISCORD_API_KEY")
-LM_STUDIO_URL = "http://127.0.0.1:1234/v1/chat/completions"
-
 url = os.getenv("CHAT_URL")
 
 headers = {
@@ -34,6 +32,7 @@ blockchain_messages = [
     "Рекомендую начать с книги «Mastering Bitcoin» Андреаса Антонопулоса. Также полезно изучить документацию Ethereum.",
 ]
 
+
 def send_message(url, headers, message):
     data = {
         "content": message,
@@ -41,12 +40,11 @@ def send_message(url, headers, message):
     response = requests.post(url, headers=headers, json=data)
     return response
 
-if 1:
-    for message in blockchain_messages:
-        response = send_message(url, headers, message)
-        if response.status_code == 200:
-            print("Сообщение отправлено!")
-        else:
-            print(f"Ошибка: {response.status_code}")
-            print(response.text)
 
+for message in blockchain_messages:
+    response = send_message(url, headers, message)
+    if response.status_code == 200:
+        print("Сообщение отправлено!")
+    else:
+        print(f"Ошибка: {response.status_code}")
+        print(response.text)

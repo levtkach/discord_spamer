@@ -2,6 +2,7 @@ import requests
 
 LM_STUDIO_URL = "http://127.0.0.1:1234/v1/chat/completions"
 
+
 def generate_text(prompt):
 
     system_prompt = """
@@ -13,16 +14,15 @@ def generate_text(prompt):
     Не нужно никому ничего обяснять. Твоя задача - поддерживать диалог. 
     """
 
-
     data = {
-        "model": "deepseek-r1-distill-qwen-7b",  
+        "model": "deepseek-r1-distill-qwen-7b",
         "messages": [
-            {"role": "system", "content": system_prompt},  
-            {"role": "user", "content": prompt}          
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt},
         ],
-        "temperature": 0.7,  
-        "max_tokens": 300,    
-        "top_p": 0.9         
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "top_p": 0.9,
     }
 
     try:
@@ -31,9 +31,8 @@ def generate_text(prompt):
         if response.status_code == 200:
             result = response.json()
             generated_text = result["choices"][0]["message"]["content"]
-            return generated_text.strip()  
+            return generated_text.strip()
         else:
-            return 
+            return
     except Exception as e:
-        return 
-
+        return

@@ -1,6 +1,4 @@
 import requests
-from dotenv import load_dotenv
-import os
 
 
 def reply_to_message(channel_id, message_id, reply_text, api_key):

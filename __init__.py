@@ -4,7 +4,6 @@ from random import uniform, randint, choice
 from sender import reply_to_message, send_context_message
 from parser import get_last_messages
 from generator import generate_text
-
 from constants import CHANNEL_ID, MIN_SEC, MAX_SEC, MESSAGE_COUNT, CHAT_URL
 
 last_key = None
